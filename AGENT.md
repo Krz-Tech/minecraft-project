@@ -29,6 +29,7 @@
 | [Docs/GameSystem/0.GameSystem_General.md](Docs/GameSystem/0.GameSystem_General.md) | コアゲームループ、経済、ランク |
 | [Docs/GameSystem/1.GameSystem_BattleStyle.md](Docs/GameSystem/1.GameSystem_BattleStyle.md) | 戦闘システム、Tech Suit、スマートエイム |
 | [Docs/GameSystem/1.1.Combat_Dash.md](Docs/GameSystem/1.1.Combat_Dash.md) | ダッシュシステム (AD/QB) 詳細 |
+| [Docs/GameSystem/1.2.Combat_SmartAim.md](Docs/GameSystem/1.2.Combat_SmartAim.md) | スマートエイム (FCS) 詳細 |
 | [Docs/GameSystem/1.GameSystem_LifeStyle.md](Docs/GameSystem/1.GameSystem_LifeStyle.md) | 生活システム、区画、家具 |
 | [Docs/GameSystem/1.GameSystem_MMORPG.md](Docs/GameSystem/1.GameSystem_MMORPG.md) | スキルシステム、パッシブ効果 |
 | [Docs/GameSystem/2.GameSystem_PlayGround.md](Docs/GameSystem/2.GameSystem_PlayGround.md) | プレイグラウンド詳細、PvP、帰還 |
