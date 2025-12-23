@@ -38,6 +38,7 @@
 | ファイル | 内容 |
 |---------|------|
 | [Docs/Development/VariableReference.md](Docs/Development/VariableReference.md) | 変数定義一覧 (命名規則、初期値) |
+| [Docs/Development/DataSynchronization.md](Docs/Development/DataSynchronization.md) | サーバー間データ同期仕様 (SQL/シリアライズ) |
 | [Docs/TechArchitecture.md](Docs/TechArchitecture.md) | インフラ構成、ネットワーク図 |
 | [Docs/PluginArchitecture.md](Docs/PluginArchitecture.md) | プラグイン構成、カスタムモジュール |
 | [Docs/WebDocsList.md](Docs/WebDocsList.md) | 参照資料インデックス |
