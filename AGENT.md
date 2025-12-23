@@ -39,6 +39,7 @@
 | [Docs/Development/DataSynchronization.md](Docs/Development/DataSynchronization.md) | サーバー間データ同期仕様 (SQL/シリアライズ) |
 | [Docs/Development/PerformanceAnalysis.md](Docs/Development/PerformanceAnalysis.md) | パフォーマンス負荷シミュレーション (最適化指針) |
 | [Docs/Development/TechStack_Detailed.md](Docs/Development/TechStack_Detailed.md) | 技術スタック・プラグイン・依存関係詳細 |
+| [Docs/Progress/2025-12-23.md](Docs/Progress/2025-12-23.md) | **最新の進捗レポート** |
 | [Docs/TechArchitecture.md](Docs/TechArchitecture.md) | インフラ構成、ネットワーク図 |
 | [Docs/PluginArchitecture.md](Docs/PluginArchitecture.md) | プラグイン構成、カスタムモジュール |
 | [Docs/WebDocsList.md](Docs/WebDocsList.md) | 参照資料インデックス |
