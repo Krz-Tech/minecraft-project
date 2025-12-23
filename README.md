@@ -1,5 +1,8 @@
 # Tech::Playground
-## Build > Launch > Survive
+## Build --> Launch --> Survive
+
+> 「次世代のマインクラフトの遊び場へようこそ」
+
 ### プロジェクト概要
 
 ## > プロジェクトの目的
