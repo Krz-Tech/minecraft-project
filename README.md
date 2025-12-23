@@ -1,6 +1,6 @@
-# | Krz-Tech Minecraft Server Project
-# | 名称未定
-# | プロジェクト概要
+# Tech::Playground
+## Build > Launch > Survive
+### プロジェクト概要
 
 ## > プロジェクトの目的
 * 新しいスタイルのMinecraftを作りたい
