@@ -60,6 +60,8 @@ flowchart TB
 | SkQuery | - | ✅ | ✅ | SQL連携 |
 | PlaceholderAPI | - | ✅ | ✅ | プレースホルダー |
 | ProtocolLib | - | ✅ | ✅ | パケット操作 (Private HUD用) |
+| TAB | - | ✅ | ✅ | BossBar, Tablist, Scoreboard管理 |
+| MythicMobs | - | - | ✅ | 高機能エンティティ生成、スキル定義 |
 | Vault | - | ✅ | ✅ | 経済・権限API |
 | LuckPerms | - | ✅ | ✅ | 権限管理 |
 | LuckPerms-Velocity | ✅ | - | - | Velocity用 |
@@ -115,6 +117,7 @@ flowchart TB
         end
         subgraph P_3RD["サードパーティ"]
             P_DSRV["DiscordSRV"]
+            P_MYTHIC["MythicMobs"]
         end
         subgraph P_CUSTOM["カスタム"]
             P_CORE["krz-core"]
@@ -122,6 +125,7 @@ flowchart TB
             P_STATS["krz-stats"]
             P_PG["krz-playground"]
             P_LEVEL["krz-leveling"]
+            P_TAB["TAB"]
         end
     end
 
@@ -242,7 +246,7 @@ messaging-service: sql
 | **krz-economy** | Skript | 通貨システム、取引ログ | 高 |
 | **krz-stats** | Skript | HP/防御力/攻撃力/会心率 | 高 |
 | **krz-housing** | Skript | 区画購入・管理・保護 | 中 |
-| **krz-playground** | Skript | 帰還システム、敵スポーン、ルート | 高 |
+| **krz-playground** | Skript | 帰還システム、敵スポーン(MythicMobs連携)、ルート | 高 |
 | **krz-leveling** | Skript | ランク/戦闘/建築/生活レベル | 中 |
 | **krz-velocity** | Java | サーバー間転送、セッション管理 | 高 |
 
