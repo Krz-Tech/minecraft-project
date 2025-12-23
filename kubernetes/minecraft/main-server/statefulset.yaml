@@ -1,0 +1,131 @@
+# Main Minecraft Server StatefulSet
+# Paper Server with plugin sync from Garage S3
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mc-main
+  namespace: minecraft
+  labels:
+    app.kubernetes.io/name: minecraft
+    app.kubernetes.io/component: main-server
+spec:
+  serviceName: mc-main
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: minecraft
+      app.kubernetes.io/component: main-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: minecraft
+        app.kubernetes.io/component: main-server
+    spec:
+      # プラグイン/スクリプト同期用 init-container
+      initContainers:
+        - name: sync-plugins
+          image: rclone/rclone:latest
+          command:
+            - sh
+            - -c
+            - |
+              echo "=== Syncing plugins from Garage S3 ==="
+
+              # 共通プラグインを同期
+              echo "Syncing shared plugins..."
+              rclone sync garage:krz-plugins/shared/ /data/plugins/ \
+                --config /config/rclone.conf \
+                --verbose
+
+              # Main Server専用プラグインを同期
+              echo "Syncing main server plugins..."
+              rclone sync garage:krz-plugins/main/ /data/plugins/ \
+                --config /config/rclone.conf \
+                --verbose
+
+              # Skriptスクリプトを同期
+              echo "Syncing Skript scripts..."
+              mkdir -p /data/plugins/Skript/scripts
+              rclone sync garage:krz-scripts/ /data/plugins/Skript/scripts/ \
+                --config /config/rclone.conf \
+                --verbose
+
+              echo "=== Sync completed ==="
+              ls -la /data/plugins/
+          volumeMounts:
+            - name: rclone-config
+              mountPath: /config
+              readOnly: true
+            - name: data
+              mountPath: /data
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+
+      containers:
+        - name: minecraft
+          image: itzg/minecraft-server:java21
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TYPE
+              value: "PAPER"
+            - name: VERSION
+              value: "1.21.3"
+            - name: MEMORY
+              value: "4G"
+            - name: ENABLE_RCON
+              value: "true"
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mc-main-secrets
+                  key: rcon-password
+          ports:
+            - containerPort: 25565
+              name: minecraft
+            - containerPort: 25575
+              name: rcon
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 4Gi
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+          livenessProbe:
+            exec:
+              command:
+                - mc-health
+            initialDelaySeconds: 120
+            periodSeconds: 60
+          readinessProbe:
+            exec:
+              command:
+                - mc-health
+            initialDelaySeconds: 60
+            periodSeconds: 10
+
+      volumes:
+        - name: rclone-config
+          secret:
+            secretName: rclone-config
+
+  # 永続ボリューム (ワールドデータ)
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 50Gi
+        # storageClassName: "" # 環境に合わせて設定

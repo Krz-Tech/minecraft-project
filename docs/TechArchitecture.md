@@ -440,7 +440,98 @@ kubernetes/
 
 ---
 
-## 9. 今後の検討事項 / Future Considerations
+## 9. オブジェクトストレージ (Garage) / Object Storage
+
+### 9.1 概要
+
+プラグイン・スクリプト・バックアップの一元管理に **Garage**（S3互換オブジェクトストレージ）を使用。
+
+> **選定理由**: MinIOが商用化・メンテナンスモード移行したため、軽量・完全オープンソースのGarageを採用。
+
+### 9.2 アーキテクチャ
+
+```mermaid
+flowchart TB
+    subgraph GARAGE_NS["Namespace: garage"]
+        GARAGE[("Garage\n(S3互換ストレージ)")]
+        
+        subgraph BUCKETS["Buckets"]
+            B1["krz-plugins/"]
+            B2["krz-scripts/"]
+            B3["krz-backups/"]
+        end
+    end
+    
+    subgraph MC_NS["Namespace: minecraft"]
+        MC_MAIN["Main Server Pod\n(init-container: rclone)"]
+        MC_PG["Playground Pod\n(init-container: rclone)"]
+    end
+    
+    subgraph CODER_NS["Coder Workspace"]
+        DEV["開発者\n(rclone/s3cmd)"]
+    end
+    
+    GARAGE --> BUCKETS
+    B1 --> MC_MAIN
+    B2 --> MC_MAIN
+    B1 --> MC_PG
+    B2 --> MC_PG
+    DEV -->|"スクリプト更新"| B2
+    MC_MAIN -->|"定期バックアップ"| B3
+
+    classDef garage fill:#e67e22,stroke:#333,color:#fff
+    classDef minecraft fill:#27ae60,stroke:#333,color:#fff
+    classDef dev fill:#3498db,stroke:#333,color:#fff
+
+    class GARAGE,B1,B2,B3 garage
+    class MC_MAIN,MC_PG minecraft
+    class DEV dev
+```
+
+### 9.3 バケット設計
+
+| バケット名 | 用途 | アクセス元 | 同期タイミング |
+|-----------|------|-----------|---------------|
+| `krz-plugins` | サードパーティJAR | MC Pod (読取) | Pod起動時 |
+| `krz-scripts` | Skriptスクリプト | MC Pod (読取), Coder (書込) | Pod起動時 |
+| `krz-backups` | ワールドバックアップ | MC Pod (書込) | 定期 (CronJob) |
+
+### 9.4 同期方式
+
+Minecraft Pod の `init-container` で rclone を使用してGarageからファイルを同期：
+
+```yaml
+initContainers:
+  - name: sync-plugins
+    image: rclone/rclone:latest
+    command:
+      - sh
+      - -c
+      - |
+        rclone sync garage:krz-plugins/main/ /data/plugins/ --config /config/rclone.conf
+        rclone sync garage:krz-scripts/ /data/plugins/Skript/scripts/ --config /config/rclone.conf
+    volumeMounts:
+      - name: rclone-config
+        mountPath: /config
+      - name: data
+        mountPath: /data
+```
+
+### 9.5 マニフェスト構成
+
+```
+kubernetes/
+├── garage/
+│   ├── values.yaml          # Helm values
+│   └── kustomization.yaml
+└── minecraft/
+    ├── rclone-secret.yaml   # S3認証情報
+    └── ...
+```
+
+---
+
+## 10. 今後の検討事項 / Future Considerations
 
 ### 優先度: 高
 
@@ -459,6 +550,7 @@ kubernetes/
 - [ ] ディザスタリカバリ計画
 
 ---
+
 
 ## Appendix: 技術選定理由
 

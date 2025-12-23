@@ -1,0 +1,21 @@
+# Main Server Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mc-main
+  namespace: minecraft
+  labels:
+    app.kubernetes.io/name: minecraft
+    app.kubernetes.io/component: main-server
+spec:
+  selector:
+    app.kubernetes.io/name: minecraft
+    app.kubernetes.io/component: main-server
+  ports:
+    - name: minecraft
+      port: 25565
+      targetPort: 25565
+    - name: rcon
+      port: 25575
+      targetPort: 25575
+  type: ClusterIP

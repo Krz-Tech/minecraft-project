@@ -470,6 +470,83 @@ minecraft/
 
 ---
 
+## 8. K8s環境でのプラグインマウント方式 / Plugin Mounting in Kubernetes
+
+### 8.1 概要
+
+本番Kubernetes環境では、**Garage**（S3互換オブジェクトストレージ）を使用してプラグイン・スクリプトを一元管理する。
+
+### 8.2 マウント方式
+
+| 種別 | 保存先 | マウント方式 | 更新方法 |
+|------|--------|-------------|----------|
+| **サードパーティJAR** | Garage `krz-plugins/` | init-container (rclone) | バケット更新 → Pod再起動 |
+| **Skriptスクリプト** | Garage `krz-scripts/` | init-container (rclone) | バケット更新 → Pod再起動 or `/sk reload` |
+| **ワールドデータ** | PersistentVolume | 直接マウント | 永続化 |
+| **設定ファイル** | ConfigMap / Secret | Volume マウント | `kubectl apply` |
+
+### 8.3 同期フロー
+
+```mermaid
+sequenceDiagram
+    participant DEV as 開発者 (Coder)
+    participant GARAGE as Garage S3
+    participant POD as Minecraft Pod
+    participant MC as Paper Server
+
+    DEV->>GARAGE: rclone sync (スクリプト更新)
+    
+    Note over POD: Pod起動時
+    POD->>POD: init-container 起動
+    POD->>GARAGE: rclone sync (plugins)
+    POD->>GARAGE: rclone sync (scripts)
+    GARAGE-->>POD: ファイル同期完了
+    POD->>MC: Paper Server 起動
+    MC->>MC: プラグイン読み込み
+```
+
+### 8.4 開発者コマンド
+
+```bash
+# Coder Workspace からスクリプト更新
+rclone sync ./scripts/krz-economy/ garage:krz-scripts/krz-economy/
+
+# プラグインJAR追加
+rclone copy ./Skript-2.9.jar garage:krz-plugins/main/
+
+# バケット内容確認
+rclone ls garage:krz-scripts/
+```
+
+### 8.5 サーバー別バケット構造
+
+```
+krz-plugins/
+├── main/              # Main Server 専用
+│   ├── Skript-2.9.jar
+│   ├── SkBee-3.x.jar
+│   ├── BlueMap-x.x.jar
+│   └── ...
+├── playground/        # Playground 専用
+│   ├── Skript-2.9.jar
+│   └── ...
+└── shared/            # 共通プラグイン
+    ├── LuckPerms-5.x.jar
+    ├── Vault-1.x.jar
+    └── PlaceholderAPI-2.x.jar
+
+krz-scripts/
+├── krz-core/          # 共通
+├── krz-economy/       # 共通
+├── krz-stats/         # 共通
+├── krz-housing/       # Main only
+├── krz-playground/    # Playground only
+└── krz-leveling/      # 共通
+```
+
+---
+
+
 ## Appendix: プラグインリンク
 
 | プラグイン | リンク |

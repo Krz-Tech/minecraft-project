@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../minecraft-project-skript"
+		},
+		{
+			"path": "../minecraft-project-coder_template"
 		}
 	],
 	"settings": {}
