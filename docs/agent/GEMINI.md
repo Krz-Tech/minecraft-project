@@ -27,11 +27,18 @@
 
 ## 4. 行動指針 (Guidelines)
 1.  **否定しないが、より良い解を示す**: ユーザーのアイデアを尊重しつつ、技術的に無理がある・UXを損なう場合は代替案を出す。
-2.  **自律的なドキュメント参照**: 質問に答える前に、必ず `Docs/` 以下の関連ドキュメントを確認する。
-3.  **Commitment**: コーディングだけでなく、Gitコミットやファイル操作も積極的に代行する。
+2.  **AGENT.mdの活用**: 作業開始時に必ず [AGENT.md](../../AGENT.md) を読み込み、最新のコンテキストとインデックスを確認する。
+3.  **ドキュメント先行開発**: 大規模な機能実装の前には必ず `Docs/` 配下に設計書を作成し、ユーザーの承認を得る。
+4.  **高度なアイテム実装**:
+    - **ExecutableItems (EI)**: 物理/ENブレードやTech Suitなどの高度なロジックを伴うアイテムに使用。
+    - **CustomCrafting (CC)**: バニラ武器の [強化] 変換やカスタムレシピに使用。
+5.  **中央集権的アイテム管理**: アイテムの ID/CMD/NBT は `Docs/ItemDatabase/` 内の各カテゴリファイルで一元管理し、重複を防ぐ。
+6.  **進捗の透明化**: セッション終了時やキリの良いタイミングで `Docs/Progress/YYYY-MM-DD.md` に進捗を記録する。
+7.  **Gitコミット・プッシュ**: 実装フェーズでは積極的に代行するが、設計フェーズやユーザーの明示的な指示がある場合は勝手にプッシュしない。
 
 ## 5. 禁止事項 (Anti-Patterns)
 *   **魔法・ファンタジー用語の使用**: 「マナ」「魔法攻撃」はNG。「EN」「Tech攻撃」と言い換える。
+*   **名前解決の欠如**: `Docs/ItemDatabase/` に定義されていないCMDやIDを勝手に使用しない。
 *   **Skriptの非推奨構文**: 常に最新のSkript構文を使用する（`SKRIPT.md`参照）。
 *   **未確認の破壊的変更**: 既存ファイルを大きく書き換える際は必ず確認を取る。
 
@@ -39,22 +46,15 @@
 
 > [!CAUTION]
 > **作業開始前に以下のドキュメントを必ず読み込んでください。**
-> これらを参照せずにコードを書くことは禁止です。
 
 ### エージェントルール
+*   [AGENT.md](../../AGENT.md) - **最優先インデックス**
 *   `docs/agent/MINECRAFT.md` - ゲーム仕様サマリー
 *   `docs/agent/SKRIPT.md` - Skriptコーディング規約
 
-### ゲーム仕様
-*   `Docs/GameSystem/0.GameSystem_General.md` - コアループ、経済
-*   `Docs/GameSystem/1.GameSystem_BattleStyle.md` - 戦闘システム
-*   `Docs/GameSystem/1.GameSystem_LifeStyle.md` - 生活システム
-*   `Docs/GameSystem/1.GameSystem_MMORPG.md` - スキルシステム
-*   `Docs/GameSystem/2.GameSystem_PlayGround.md` - プレイグラウンド
-*   `Docs/GameSystem/3.GameSystem_UX.md` - UXガイドライン
-*   `Docs/GameSystem/4.GameSystem_Menu.md` - メニュー仕様
-
-### 開発リファレンス
+### ゲーム仕様・リファレンス
+*   `Docs/GameSystem/0.GameSystem_Index.md` - **ゲームシステム全般の入り口**
+*   `Docs/ItemDatabase/0.ItemDatabase_Index.md` - **カスタムアイテム・CMD管理の入り口**
 *   `Docs/Development/VariableReference.md` - **変数定義（必須）**
 *   `Docs/TechArchitecture.md` - インフラ構成
 *   `Docs/PluginArchitecture.md` - プラグイン構成
