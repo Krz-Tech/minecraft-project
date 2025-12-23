@@ -34,6 +34,8 @@
 | **LuckPerms** | 権限・ランク管理。サーバー間同期対応。 | MySQL/PostgreSQL | [LuckPerms](https://luckperms.net/) |
 | **Vault** | 経済APIの標準。krz-economyと他プラグインの橋渡し。 | なし | [Vault](https://github.com/MilkBowl/Vault) |
 | **PlaceholderAPI** | UIやチャットへの変数表示。 | Skript, LuckPerms | [PAPI Wiki](https://github.com/PlaceholderAPI/PlaceholderAPI/wiki) |
+| **ExecutableItems** | 高性能カスタムアイテム。スキル、ステータス、特定挙動の実装。 | PlaceholderAPI | [Ssomar Wiki](https://ssomar.gitbook.io/executableitems) |
+| **CustomCrafting** | 自由度の高いクラフトレシピ、GUI作業台の作成。 | なし | [Wolfy Script Docs](https://wolfyscripts.com/docs/customcrafting/) |
 
 ### 2.3 演出・連携 (Visual & Integration)
 | プラグイン | 役割 | 備考 | リファレンス |

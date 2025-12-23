@@ -42,6 +42,7 @@
 | ファイル | 内容 |
 |---------|------|
 | [Docs/Development/VariableReference.md](Docs/Development/VariableReference.md) | 変数定義一覧 (命名規則、初期値) |
+| [Docs/ItemDatabase/0.ItemDatabase_Index.md](Docs/ItemDatabase/0.ItemDatabase_Index.md) | **アイテムデータベース (CMD/ID/NBT管理)** |
 | [Docs/Development/DataSynchronization.md](Docs/Development/DataSynchronization.md) | サーバー間データ同期仕様 (SQL/シリアライズ) |
 | [Docs/Development/PerformanceAnalysis.md](Docs/Development/PerformanceAnalysis.md) | パフォーマンス負荷シミュレーション (最適化指針) |
 | [Docs/Development/TechStack_Detailed.md](Docs/Development/TechStack_Detailed.md) | 技術スタック・プラグイン・依存関係詳細 |
