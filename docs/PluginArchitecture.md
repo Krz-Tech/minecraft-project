@@ -59,6 +59,7 @@ flowchart TB
 | skript-reflect | - | ✅ | ✅ | Java API連携 (必要時) |
 | SkQuery | - | ✅ | ✅ | SQL連携 |
 | PlaceholderAPI | - | ✅ | ✅ | プレースホルダー |
+| ProtocolLib | - | ✅ | ✅ | パケット操作 (Private HUD用) |
 | Vault | - | ✅ | ✅ | 経済・権限API |
 | LuckPerms | - | ✅ | ✅ | 権限管理 |
 | LuckPerms-Velocity | ✅ | - | - | Velocity用 |
