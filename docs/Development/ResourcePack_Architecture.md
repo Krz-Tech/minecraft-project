@@ -20,7 +20,7 @@
 | **CustomModelData (CMD)** | 武器・ツール・UIアイコンの定義 | 10001〜 形式のID体系で管理。 |
 | **Font Provider** | UI/HUDのアイコン、負のスペース (Negative Space) | `assets/minecraft/font/default.json` で定義。 |
 | **Atlases** | カスタムテクスチャの認識・最適化 | `assets/minecraft/atlases/gui.json` 等で管理。 |
-| **Core Shaders** | 透過HUD、発光エフェクト、画面効果 | Vanilla組み込みシェーダー。外部MOD不要。 |
+| **Core Shaders** | 透過HUD、発光エフェクト、**カスタム視点 (Camera Offset)** | Vanilla組み込みシェーダー。外部MOD不要。 |
 | **Negative Space Font** | チャット・タイトル・アクションバーでのレイアウト調整 | `\uF801` 〜 `\uF80A` 等の余白用グリフ。 |
 
 ---
@@ -71,7 +71,19 @@ resourcepack/
 
 ---
 
-## 5. 将来の機能拡張への想定 (Future-Proofing)
+## 5. シェーダーによる視点操作 (Shader Camera Control)
+
+バニラの 1.21+ 環境において、Core Shaders (GLSL) を用いた「ショルダービュー (3rd Person Shoulder Cam)」の実装方針を定義します。
+
+### 基本ロジック
+- **投影行列 (ProjMat) の操作**: `rendertype_solid` などの頂点シェーダーにおいて、`ProjMat` に平行移動行列を乗算することで、レンダリングされる世界全体を水平方向にオフセットさせます。
+- **UIとの同期**: 視点をずらすとクロスヘア（中心点）がずれるため、`position_tex` シェーダーを編集し、UIレイヤーのクロスヘアも同じ比率でオフセットさせる必要があります。
+
+### 制限事項と対策
+- **カリング (Culling)**: エンジン側が画面外と判断したオブジェクトが消える現象。FOV（視野角）を広めに設定し、シェーダー側で描画範囲を絞ることで疑似的に解決します。
+- **1人称の判定**: 1人称時の自分の手までオフセットされないよう、頂点の距離成分（`ModelViewMat`）を利用して、手前にあるモデルのみオフセットを無効化する処理を組み込みます。
+
+## 6. 将来の機能拡張への想定 (Future-Proofing)
 
 1.  **動的HUD (HappyHUD/MythicHUD互換)**: 
     - `atlases/gui.json` にパスを通しておくことで、将来的にこれらのプラグインを導入してもそのままテクスチャを参照可能。
