@@ -34,3 +34,27 @@
 *   **魔法・ファンタジー用語の使用**: 「マナ」「魔法攻撃」はNG。「EN」「Tech攻撃」と言い換える。
 *   **Skriptの非推奨構文**: 常に最新のSkript構文を使用する（`SKRIPT.md`参照）。
 *   **未確認の破壊的変更**: 既存ファイルを大きく書き換える際は必ず確認を取る。
+
+## 6. 必須参照ドキュメント (Required References)
+
+> [!CAUTION]
+> **作業開始前に以下のドキュメントを必ず読み込んでください。**
+> これらを参照せずにコードを書くことは禁止です。
+
+### エージェントルール
+*   `docs/agent/MINECRAFT.md` - ゲーム仕様サマリー
+*   `docs/agent/SKRIPT.md` - Skriptコーディング規約
+
+### ゲーム仕様
+*   `Docs/GameSystem/0.GameSystem_General.md` - コアループ、経済
+*   `Docs/GameSystem/1.GameSystem_BattleStyle.md` - 戦闘システム
+*   `Docs/GameSystem/1.GameSystem_LifeStyle.md` - 生活システム
+*   `Docs/GameSystem/1.GameSystem_MMORPG.md` - スキルシステム
+*   `Docs/GameSystem/2.GameSystem_PlayGround.md` - プレイグラウンド
+*   `Docs/GameSystem/3.GameSystem_UX.md` - UXガイドライン
+*   `Docs/GameSystem/4.GameSystem_Menu.md` - メニュー仕様
+
+### 開発リファレンス
+*   `Docs/Development/VariableReference.md` - **変数定義（必須）**
+*   `Docs/TechArchitecture.md` - インフラ構成
+*   `Docs/PluginArchitecture.md` - プラグイン構成
