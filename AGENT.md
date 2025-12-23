@@ -7,7 +7,7 @@
 ---
 
 ## プロジェクト概要
-*   **プロジェクト名**: Krz-Tech Minecraft Server Project
+*   **プロジェクト名**: Tech::Playground
 *   **ジャンル**: Tech Extraction RPG (Tarkov × Armored Core × Minecraft)
 *   **世界観**: SF/Tech。魔法禁止。
 *   **技術スタック**: Skript (メイン), Paper/Velocity, Kubernetes, ArgoCD
