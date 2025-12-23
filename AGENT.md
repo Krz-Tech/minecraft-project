@@ -26,17 +26,10 @@
 ### 2. ゲーム仕様
 | ファイル | 内容 |
 |---------|------|
-| [Docs/GameSystem/0.GameSystem_General.md](Docs/GameSystem/0.GameSystem_General.md) | コアゲームループ、経済、ランク |
-| [Docs/GameSystem/1.GameSystem_BattleStyle.md](Docs/GameSystem/1.GameSystem_BattleStyle.md) | 戦闘システム、Tech Suit、スマートエイム |
-| [Docs/GameSystem/1.1.Combat_Dash.md](Docs/GameSystem/1.1.Combat_Dash.md) | ダッシュシステム (AD/QB) 詳細 |
-| [Docs/GameSystem/1.2.Combat_SmartAim.md](Docs/GameSystem/1.2.Combat_SmartAim.md) | スマートエイム (FCS) 詳細 |
-| [Docs/GameSystem/1.3.Combat_Melee.md](Docs/GameSystem/1.3.Combat_Melee.md) | 近接武器システム詳細 |
-| [Docs/GameSystem/1.4.Combat_WeaponList.md](Docs/GameSystem/1.4.Combat_WeaponList.md) | 武器マスターリスト、強化変換仕様 |
-| [Docs/GameSystem/1.GameSystem_LifeStyle.md](Docs/GameSystem/1.GameSystem_LifeStyle.md) | 生活システム、区画、家具 |
-| [Docs/GameSystem/1.GameSystem_MMORPG.md](Docs/GameSystem/1.GameSystem_MMORPG.md) | スキルシステム、パッシブ効果 |
-| [Docs/GameSystem/2.GameSystem_PlayGround.md](Docs/GameSystem/2.GameSystem_PlayGround.md) | プレイグラウンド詳細、PvP、帰還 |
-| [Docs/GameSystem/3.GameSystem_UX.md](Docs/GameSystem/3.GameSystem_UX.md) | UXガイドライン、カラー、サウンド |
-| [Docs/GameSystem/4.GameSystem_Menu.md](Docs/GameSystem/4.GameSystem_Menu.md) | メインメニュー仕様 |
+| [Docs/GameSystem/0.GameSystem_Index.md](Docs/GameSystem/0.GameSystem_Index.md) | **ゲームシステム・マスターインデックス (全仕様の入り口)** |
+| [Docs/GameSystem/1.4.Combat_WeaponList.md](Docs/GameSystem/1.4.Combat_WeaponList.md) | 武器の実装・強化仕様 |
+| [Docs/GameSystem/1.5.Combat_DamageStagger.md](Docs/GameSystem/1.5.Combat_DamageStagger.md) | ダメージ計算・スタッガーシステム詳細 |
+| [Docs/GameSystem/3.1.Scoreboard_Sidebar_Spec.md](Docs/GameSystem/3.1.Scoreboard_Sidebar_Spec.md) | スコアボード・サイドバー詳細仕様 |
 
 ### 3. 開発リファレンス
 | ファイル | 内容 |
@@ -61,6 +54,15 @@
 {-sys::*}         → システム状態
 {_*}              → 一時変数
 ```
+
+## 戦闘バランス (Stagger)
+**「スタッガー（衝撃）」システム** は、戦闘における「攻守の入れ替わり」を生み出す重要な要素です。
+
+*   **衝撃蓄積**: 攻撃によりスタミナとは別の「体勢ゲージ」が蓄積。
+*   **スタッガー状態**: ゲージが最大になると、一時的に動作不能＆被ダメージ増大。
+*   **直撃のチャンス**: スタッガー中の敵には高威力武器による「直撃（Direct Hit）」が狙えます。
+
+詳細は [1.5.Combat_DamageStagger.md](1.5.Combat_DamageStagger.md) を参照。
 
 ### カラーパレット
 ```
