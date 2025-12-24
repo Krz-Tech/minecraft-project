@@ -3,6 +3,7 @@
 
 > [!IMPORTANT]
 > Skriptを作成・修正する際は必ずこの規約に従ってください。保守性とパフォーマンスを最優先します。
+> 構文の最新仕様については **[Skript公式ドキュメント](https://docs.skriptlang.org/)** および **[マスターインデックス](../Development/Skript_Docs_Master_Index.md)** を常に参照してください。
 
 ---
 
@@ -34,7 +35,8 @@ Krz-Techプロジェクト固有のプレフィックスを使用し、スコー
 
 ## 3. 推奨アドオン (Addons)
 *   **SkBee**: NBT操作、UI (GUI)、レシピ、構造物。
-    *   `set nbt compound from ...`
+*   **skQuery**: GUI作成 (`format slot`)、MIDI再生、YAML操作、動的な評価 (Lambda)。
+*   **Skellett**: BungeeCord連携、MySQL、エンティティの高度な操作、高度なチャット演出。
 *   **skript-reflect**: Java APIの直接呼び出し（高度な機能のみ）。
     *   `import "org.bukkit.entity.Player"`
 
