@@ -1,3 +1,6 @@
 /temp/
-
 *.code-workspace
+
+# Documentation Progress (Local Only)
+docs/Progress/
+Docs/Progress/

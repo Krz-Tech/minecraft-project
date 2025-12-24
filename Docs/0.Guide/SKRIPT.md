@@ -10,7 +10,7 @@
 
 > [!IMPORTANT]
 > Skriptを作成・修正する際は必ずこの規約に従ってください。保守性とパフォーマンスを最優先します。
-> 構文の最新仕様については **[Skript公式ドキュメント](https://docs.skriptlang.org/)** および **[マスターインデックス](../Development/Skript_Docs_Master_Index.md)** を常に参照してください。
+> 構文の最新仕様については **[Skript公式ドキュメント](https://docs.skriptlang.org/)** および **[変数定義一覧](../4.Technical/VariableReference.md)** を常に参照してください。
 
 ---
 
@@ -22,14 +22,7 @@
 ## 2. 命名規則 (Naming Convention)
 
 ### 変数 (Variables)
-Krz-Techプロジェクト固有のプレフィックスを使用し、スコープを明確にする。
-
-| 種別 | プレフィックス | 例 | 備考 |
-|-----|-------------|---|------|
-| **一時変数** | `_{variable}` | `_damage`, `_{_target}` | 関数・イベント内のみ |
-| **プレイヤー** | `{-kp::%player's uuid%::key}` | `{-kp::%player's uuid%::level}` | 永続データ(MySQL連携推奨) |
-| **設定/定数** | `{-krz::config::key}` | `{-krz::config::max_level}` | サーバー共通設定 |
-| **システム** | `{-sys::key}` | `{-sys::pg_status}` | システム内部状態 |
+変数の命名およびスコープについては **[変数定義一覧 (VariableReference.md)](../4.Technical/VariableReference.md)** に完全に準拠してください。
 
 *   リスト変数は `::` で区切る (Kebab-case推奨)。
 *   `{variable}` の `{}` 囲みはSkript 2.9以降の推奨構文に従う。
