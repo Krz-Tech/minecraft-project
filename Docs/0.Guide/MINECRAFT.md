@@ -13,7 +13,7 @@
     *   **Playground**: 戦闘ワールド (`pg_waiting`, `playground`)
 
 ## 2. ゲームシステム仕様 (Game Specs)
-詳細は `Docs/GameSystem/*.md` を参照。ここでは要約のみ記す。
+詳細は `Docs/2.GameSystem/*.md` を参照。ここでは要約のみ記す。
 
 ### 世界観
 *   **Tech / Sci-Fi / Cyberpunk**
