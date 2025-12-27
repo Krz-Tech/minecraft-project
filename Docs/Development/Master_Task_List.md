@@ -7,7 +7,7 @@
 
 # 全体タスク・ロードマップ (Project Road Map & Task List)
 
-本プロジェクト「Tech::Playground」の完遂に向けた、フェーズ別の実装タスクを整理します。
+本プロジェクト「Code::Playground」の完遂に向けた、フェーズ別の実装タスクを整理します。
 
 ---
 

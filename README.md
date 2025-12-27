@@ -1,4 +1,4 @@
-# Tech::Playground
+# Code::Playground
 ## Build --> Launch --> Survive
 
 > 「次世代のマインクラフトの遊び場へようこそ」
