@@ -1,7 +1,0 @@
-# Minecraft Namespace
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: minecraft
-  labels:
-    app.kubernetes.io/name: minecraft
