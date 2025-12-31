@@ -22,14 +22,17 @@
 | 状況 | ファイル名 | 説明 |
 |:---:|:---|:---|
 | [x] | `Docs/2.GameSystem/2.Game_Battle/BattleStyle.md` | 戦闘スタイル定義 |
-| [x] | `Docs/2.GameSystem/2.Game_Battle/Playground.md` | プレイグラウンド詳細 |
+| [=] | `Docs/2.GameSystem/2.Game_Battle/Playground.md` | プレイグラウンド詳細 |
 
 ### 2.Game_Core
 | 状況 | ファイル名 | 説明 |
 |:---:|:---|:---|
 | [x] | `Docs/2.GameSystem/2.Game_Core/CoreContents.md` | コアコンテンツ定義 |
-| [x] | `Docs/2.GameSystem/2.Game_Core/WorldView.md` | 世界観設定 |
+| [=] | `Docs/2.GameSystem/2.Game_Core/WorldView.md` | 世界観設定 |
+| [=] | `Docs/2.GameSystem/2.Game_Core/MobSociety.md` | モブ社会・各ディメンションの役割 |
+| [=] | `Docs/2.GameSystem/2.Game_Core/DeltaGuild.md` | Delta Guild・プレイグラウンド探索支援組織 |
 | [x] | `Docs/2.GameSystem/2.Game_Core/LifeStyle.md` | 生活スタイル定義 |
+| [=] | `Docs/2.GameSystem/2.Game_Core/99.Review_WorldView.md` | 世界観レビュー |
 
 ### 2.Game_Economy
 | 状況 | ファイル名 | 説明 |
@@ -67,6 +70,35 @@
 | [x] | `Docs/4.DXOptimization/4.DX_Github.md` | GitHub/Git運用ルール |
 
 ---
+
+## 次回作業タスク (Next Tasks)
+
+### 優先度: 高（ゲームプレイに直結）
+| 状況 | タスク | 関連ドキュメント |
+|:---:|:---|:---|
+| [ ] | Δコインの相場感・アイテム売却価格の設計 | `Currency.md` |
+| [ ] | ランクシステム数値設計（必要経験値、ロスト割合） | `DeltaGuild.md` |
+| [ ] | 帰還条件の具体値（時間・移動距離） | `Playground.md` |
+
+### 優先度: 中（コンテンツ設計）
+| 状況 | タスク | 関連ドキュメント |
+|:---:|:---|:---|
+| [ ] | プレイグラウンド詳細設計（マップ生成、出現モブ） | `Playground.md` |
+| [ ] | PvPルール設計 | `Playground.md`, `BattleStyle.md` |
+| [ ] | プレイグラウンド限定アイテム設計 | `2.Game_Items/*` |
+| [ ] | 戦闘システム詳細設計 | `BattleStyle.md` |
+
+### 優先度: 低（後から詰めても可）
+| 状況 | タスク | 関連ドキュメント |
+|:---:|:---|:---|
+| [ ] | オーバーワールド中心都市詳細 | `WorldView.md` |
+| [ ] | NPCキャラクター設定 | `DeltaGuild.md` |
+| [ ] | チュートリアル設計 | 新規作成 |
+| [ ] | ストーリーライン・イベント設計 | 新規作成 |
+
+---
+
 **凡例:**
-- [x]: ドキュメントファイルが存在する（内容は要確認の可能性あり）
-- [ ]: ドキュメント自体が未作成
+* [x]: ドキュメントファイルが存在する（内容は要確認の可能性あり）
+* [=]: ドキュメント内容が確定済み（2026/01/01 世界観設定完了）
+* [ ]: ドキュメント自体が未作成、またはタスク未着手
