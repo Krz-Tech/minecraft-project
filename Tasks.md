@@ -31,13 +31,14 @@
 | [=] | `Docs/2.GameSystem/2.Game_Core/WorldView.md` | 世界観設定 |
 | [=] | `Docs/2.GameSystem/2.Game_Core/MobSociety.md` | モブ社会・各ディメンションの役割 |
 | [=] | `Docs/2.GameSystem/2.Game_Core/DeltaGuild.md` | Delta Guild・プレイグラウンド探索支援組織 |
+| [x] | `Docs/2.GameSystem/2.Game_Core/Quest.md` | クエストシステム |
 | [x] | `Docs/2.GameSystem/2.Game_Core/LifeStyle.md` | 生活スタイル定義 |
 | [=] | `Docs/2.GameSystem/2.Game_Core/99.Review_WorldView.md` | 世界観レビュー |
 
 ### 2.Game_Economy
 | 状況 | ファイル名 | 説明 |
 |:---:|:---|:---|
-| [x] | `Docs/2.GameSystem/2.Game_Economy/Currency.md` | 通貨システム |
+| [=] | `Docs/2.GameSystem/2.Game_Economy/Currency.md` | 通貨システム |
 | [x] | `Docs/2.GameSystem/2.Game_Economy/Shops.md` | ショップシステム |
 
 ### 2.Game_Items
@@ -58,9 +59,9 @@
 ## 3. UX Optimization (UX最適化)
 | 状況 | ファイル名 | 説明 |
 |:---:|:---|:---|
-| [x] | `Docs/3.UXOptimization/3.UX_Design.md` | UI/UXデザイン全体像 |
+| [=] | `Docs/3.UXOptimization/3.UX_Design.md` | UI/UXデザイン全体像 |
 | [ ] | `Docs/3.UXOptimization/3.UX_GameDesign.md` | ゲームプレイ快適性設計 |
-| [x] | `Docs/3.UXOptimization/3.UX_ResourcePacks.md` | リソースパック仕様 |
+| [ ] | `Docs/3.UXOptimization/3.UX_ResourcePacks.md` | リソースパック仕様 |
 
 ## 4. DX Optimization (開発者体験)
 | 状況 | ファイル名 | 説明 |
@@ -76,17 +77,19 @@
 ### 優先度: 高（ゲームプレイに直結）
 | 状況 | タスク | 関連ドキュメント |
 |:---:|:---|:---|
-| [ ] | Δコインの相場感・アイテム売却価格の設計 | `Currency.md` |
+| [x] | Δコインの相場感・アイテム売却価格の設計 | `Currency.md` |
 | [ ] | ランクシステム数値設計（必要経験値、ロスト割合） | `DeltaGuild.md` |
-| [ ] | 帰還条件の具体値（時間・移動距離） | `Playground.md` |
+| [x] | 帰還条件の具体値（時間・移動距離） | `Playground.md` |
+| [ ] | レアバイオーム追加報酬の数値設計（Δコイン量、経験値量、ドロップ率） | `Playground.md` |
 
 ### 優先度: 中（コンテンツ設計）
 | 状況 | タスク | 関連ドキュメント |
 |:---:|:---|:---|
-| [ ] | プレイグラウンド詳細設計（マップ生成、出現モブ） | `Playground.md` |
+| [x] | プレイグラウンド詳細設計（マップ生成、救出システム） | `Playground.md` |
 | [ ] | PvPルール設計 | `Playground.md`, `BattleStyle.md` |
-| [ ] | プレイグラウンド限定アイテム設計 | `2.Game_Items/*` |
+| [ ] | バイオーム特化素材・限定アイテム設計 | `2.Game_Items/*`, `Playground.md` |
 | [ ] | 戦闘システム詳細設計 | `BattleStyle.md` |
+| [ ] | ファントム救助の演出・UI設計 | `Playground.md` |
 
 ### 優先度: 低（後から詰めても可）
 | 状況 | タスク | 関連ドキュメント |
@@ -95,6 +98,9 @@
 | [ ] | NPCキャラクター設定 | `DeltaGuild.md` |
 | [ ] | チュートリアル設計 | 新規作成 |
 | [ ] | ストーリーライン・イベント設計 | 新規作成 |
+| [ ] | クエストUIデザイン | `Quest.md` |
+| [ ] | LLMプロンプト詳細設計 | `Quest.md` |
+| [ ] | クエスト報酬の具体的数値設計 | `Quest.md` |
 
 ---
 
