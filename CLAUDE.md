@@ -77,7 +77,7 @@
 * `minecraft-project`: 唯一信頼できる情報元です。プロジェクトのマスタードキュメントとして使用されます。
 * `minecraft-project-infra`: KubernetesのマニフェストなどIaCで使用するリポジトリです。
 * `minecraft-project-skript`: 開発サーバーで実装されたSkriptのコードを格納するリポジトリです。
-* `minecraft-project-coder_template`: Coder環境でクローンされるテンプレートです。
+* `minecraft-project-workspace`: Coder環境のワークスペースリポジトリです。
 * `minecraft-project-website`: 未作成。公式Webサイトを管理するリポジトリです。
 
 以上が`2025/12/30`に定義された最新のプロンプトであり、あなたの役割です。必ず厳守し、作業を開始してください。
